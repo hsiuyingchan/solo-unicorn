@@ -15,9 +15,75 @@ A production-ready landing page template that teaches AI-assisted cloud developm
 
 > **Zero host installation:** You do NOT need Node.js, npm, or any other dev tools on your machine. Everything runs inside the Docker container.
 
-**Tell your AI agent:**
-```
-"Clone the landing-page repo, start the dev container, and open localhost:3000"
+Solo Unicorn Builder fills that gap with AI. You bring the expertise in your domain. AI covers the rest — so you can finally ship the whole thing, not just your piece of it.
+
+Don't let the word "coding" scare you. In an AI-native workflow, your daily conversation language — natural language — is the new code.
+
+## Your AI-Augmented Team
+
+The 36 core skills are organized as an "Office" — each role is an AI-powered expert you can call on:
+
+| Role | What it does for you | Example skills |
+|------|---------------------|----------------|
+| **CTO** | Architect, build, test, deploy | `multi-file-architecture`, `test-first-development`, `docker-expert`, `mcp-builder`, `webapp-testing` |
+| **CPO** | Define what to build and for whom | `product`, `idea-validation`, `pm-design-thinking`, `frontend-ui-ux` |
+| **CMO** | Position, brand, reach your audience | `marketing-brand`, `go-to-market`, `growth-analytics`, `generative-art` |
+| **CRO** | Grow revenue, build partnerships | `sales`, `business-development`, `business-model` |
+| **CFO** | Manage costs, plan finances | `finance-accounting`, `fundraising`, `aws-cli-architect` |
+| **COO** | Run operations, build your career | `operations`, `career-advisor`, `portfolio-strategy`, `document-creation` |
+
+You don't need to hire a team. You need to ask the right questions — and let AI handle the execution. [Full list of skills →](docs/skills-reference.md)
+
+## Add-on Skills
+
+Beyond the 36 core skills, 7 add-on skills extend the platform:
+
+| Skill | What it does |
+|-------|-------------|
+| `career-advisor` | Full-lifecycle career management — self-discovery, gap analysis, resume generation, interview prep, onboarding, achievement tracking, and self-reviews. Replaces the former `career-resume` skill. |
+| `startup-explorer` | Pre-validation startup idea explorer — bridges career strengths to market opportunities before you commit to building |
+| `notebooklm` | Query Google NotebookLM notebooks directly from your coding agent |
+| `youtube-knowledge-extractor` | Extract key ideas, summaries, and actionable insights from YouTube videos |
+| `oci-expert` | Oracle Cloud Infrastructure expertise — Always Free tier, A1 ARM64 instances, networking, and common errors |
+| `landing-page-service-discovery` | Synthesize professional accomplishments into high-converting landing page copy |
+| `review` | Lightweight code review skill for bugs, security issues, performance, and readability; adapted from LangChain Deep Agents. |
+
+Add-on skills work exactly like core skills — just describe what you need and the AI applies the right one. Want to contribute your own? [How to contribute →](docs/contributing.md)
+
+## Why This Exists
+
+Here's the real problem:
+
+- **Specialization created blind spots.** You've spent years going deep in one area. But shipping a product requires breadth — requirements, architecture, testing, deployment, marketing, legal, finance. Nobody taught you the other 80%.
+- **AI can fill the gaps — but only with structure.** A chatbot can answer questions. It can't guide you through a product launch, a deployment pipeline, or a fundraising round — unless it has a framework for each one.
+- **Your thinking is scattered.** A thread in ChatGPT, a conversation in Claude, notes in one app, code in another. Nothing connects.
+
+Solo Unicorn Builder gives you 36 core structured skills, 7 add-on skills, a knowledge vault, and a project workspace — so AI can operate as your team across every function you've never done before.
+
+## What You Get
+
+When you clone this project and go through this process, you get:
+
+- **Bootstrap your AI agent command center** — 43 AI-powered skills: 36 core skills plus 7 add-ons. Not just coding: product development, sales, marketing, legal, finance, operations, code review, and more. Just describe what you need in natural language and the AI applies the right expertise. [Full list →](docs/skills-reference.md)
+- **A private knowledge vault** — Your ideas, notes, goals, technical decisions, and learning in one place. Never checked into the public repo. Ships with `template_knowledge/` as a starter — copied to your private `my_knowledge/` on init.
+- **Starter projects you can build on** — `template_projects/` ships with example projects (like the landing page template) so you're not starting from zero. Your own work lives in `my_projects/` — build and ship real projects with AI-assisted workflows. A "project" can be anything: a blog post, a marketing research brief, a deployed web application, or an automated workflow.
+- **AI agent vendor-agnostic** — Works with any CLI coding agent: Claude Code, Gemini CLI, Kiro CLI, Codex CLI, OpenCode, or any tool that reads markdown. No vendor lock-in. [Compare agents →](docs/coding-agents.md)
+- **Local sandbox execution** — Docker Desktop turns natural-language instructions into safe, containerized execution on your own Mac or Windows machine, then carries the same container path toward production. [Why it matters →](docs/local-sandbox.md)
+
+## Start Here
+
+### 1. Check Prerequisites
+
+Before cloning, make sure you have the required tools. **[Read the Prerequisites Guide →](PREREQUISITES.md)**
+
+**TL;DR:** Install [Docker Desktop](https://www.docker.com/products/docker-desktop). Everything else runs inside a container.
+
+### 2. Clone and Set Up
+
+```bash
+# Clone the project
+git clone https://github.com/pingwu/solo-unicorn.git
+cd solo-unicorn
 ```
 
 Then customize with natural language:
