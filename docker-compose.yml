@@ -1,44 +1,67 @@
-# Solo Unicorn Builder - Development Environment
+# Agentic Landing Template - Docker Compose
+# Primary workflow: develop → containerize → deploy
 #
-# Start the dev environment:
-#   docker compose up -d
-#
-# Get a shell:
-#   docker compose exec dev bash
-#
-# Stop:
-#   docker compose down
+# Commands:
+#   npm run docker:dev   - Development with hot-reload (default)
+#   npm run docker:prod  - Test production build locally
 
 services:
+  # ============================================================
+  # DEV - Hot-reload development (PRIMARY)
+  # ============================================================
   dev:
     build:
-      context: .devcontainer
-      dockerfile: Dockerfile
-    container_name: unicorn-dev
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
     volumes:
-      # Mount the project directory
-      - .:/workspace
-      # Persist npm cache
-      - npm-cache:/home/developer/.npm
-      # Persist pip cache
-      - pip-cache:/home/developer/.cache/pip
-      # Mount git config for commits (read-only)
-      - ~/.gitconfig:/home/developer/.gitconfig:ro
-      # Mount SSH keys for git operations (read-only)
-      - ~/.ssh:/home/developer/.ssh:ro
-    working_dir: /workspace
-    # Keep the container running
-    stdin_open: true
-    tty: true
-    # Environment variables
-    environment:
-      - TERM=xterm-256color
-    # Optional: expose ports for web development
+      - .:/workspace:cached
     ports:
-      - "3000:3000"   # Frontend dev server
-      - "8000:8000"   # Backend/API server
-      - "5173:5173"   # Vite dev server
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+      - WATCHPACK_POLLING=true
+    command: sh -c "npm install && npm run dev"
+    networks:
+      - app-network
+    profiles:
+      - dev
 
+  # ============================================================
+  # APP - Production build preview
+  # ============================================================
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - app-network
+    profiles:
+      - prod
+
+# ============================================================
+# VOLUMES - Persistent storage
+# ============================================================
 volumes:
-  npm-cache:
-  pip-cache:
+  node_modules:
+    name: agentic-landing-node-modules
+
+# ============================================================
+# NETWORKS
+# ============================================================
+networks:
+  app-network:
+    driver: bridge
