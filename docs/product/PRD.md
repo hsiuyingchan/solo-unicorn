@@ -476,6 +476,6 @@ The README must include categorized prompts:
 
 ---
 
-**Document Owner**: Ping Wu
-**Reviewers**: Course TAs, Student Representatives
+**Document Owner**: Project maintainers
+**Reviewers**: Course staff, student representatives
 **Approval Status**: Draft

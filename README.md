@@ -1,19 +1,19 @@
 ---
-name: landing-page
-description: AI-powered personal landing page template. Your first portfolio project — tells your story and showcases your work.
+name: solo-unicorn-builder
+description: Free, open-source AI command center for builders who've never shipped an impactful service end-to-end. 36 core AI-powered skills plus 7 add-on skills spanning engineering, product, marketing, sales, finance, and operations — AI fills the gaps between your specialty and everything else it takes to go from requirement to production.
 ---
 
-# Agentic Landing Page Template
+# Solo Unicorn Builder
 
-> **"When AI can do anything for you, what will you build?"**
+**You're great at your specialty. But you've never shipped an impactful service end-to-end — because someone else always handled the parts outside your lane.**
 
-A production-ready landing page template that teaches AI-assisted cloud development. Go from `git clone` to a live deployed site using natural language prompts and container commands.
+Solo Unicorn Builder is a free, open-source command center that gives you 36 core AI-powered skills plus 7 add-on skills — 43 total — spanning engineering, product, marketing, sales, finance, legal, and operations. AI fills the gaps between your expertise and everything else it takes to go from requirement to production.
 
-## Quick Start
+## Who This Is For
 
-**Prerequisites:** [Docker Desktop](https://www.docker.com/products/docker-desktop/), [Git](https://git-scm.com/), and an AI coding assistant ([Claude Code](https://docs.anthropic.com/en/docs/claude-code) or [Gemini CLI](https://github.com/google-gemini/gemini-cli)).
+**Engineers, technical specialists, product managers, business process owners, entrepreneurs, and solution builders who can do their job — but have never carried an impactful service from requirement to production on their own.** You're a frontend engineer who's never set up a CI/CD pipeline. A backend developer who's never written a PRD. A DevOps specialist who's never validated a product idea. A product manager who's never deployed to the cloud. A business owner who's never turned a workflow into software.
 
-> **Zero host installation:** You do NOT need Node.js, npm, or any other dev tools on your machine. Everything runs inside the Docker container.
+You're good at what you do. But the work outside your specialty — requirements gathering, design, testing, deployment, marketing, legal, finance — was always someone else's job. That gap is what keeps you from building something end-to-end.
 
 Solo Unicorn Builder fills that gap with AI. You bring the expertise in your domain. AI covers the rest — so you can finally ship the whole thing, not just your piece of it.
 
@@ -70,6 +70,16 @@ When you clone this project and go through this process, you get:
 - **AI agent vendor-agnostic** — Works with any CLI coding agent: Claude Code, Gemini CLI, Kiro CLI, Codex CLI, OpenCode, or any tool that reads markdown. No vendor lock-in. [Compare agents →](docs/coding-agents.md)
 - **Local sandbox execution** — Docker Desktop turns natural-language instructions into safe, containerized execution on your own Mac or Windows machine, then carries the same container path toward production. [Why it matters →](docs/local-sandbox.md)
 
+## Project Structure
+
+The Solo Unicorn Builder project utilizes a distinct folder structure to keep your personal work separate from the core command center, making updates and version control smoother.
+
+-   **`solo-unicorn/` (This Directory):** This is the core command center containing all the AI-powered skills, instructions, templates (`template_knowledge/`, `template_projects/`), and project configuration. It's designed to be updated frequently with new features and skills.
+-   **`my_knowledge/` (Sibling to `solo-unicorn/`):** This directory is your private knowledge vault. It's where you'll store all your personal notes, research, ideas, and accumulated context. It's initialized from `template_knowledge/` but is intended for your exclusive use and version control.
+-   **`my_projects/` (Sibling to `solo-unicorn/`):** This directory is your workspace for building and shipping projects. You'll copy starter projects from `solo-unicorn/template_projects/` into `my_projects/` and manage them with their own version control.
+
+This separation ensures that updates to the `solo-unicorn/` command center don't interfere with your ongoing projects and personal knowledge base.
+
 ## Start Here
 
 ### 1. Check Prerequisites
@@ -83,148 +93,84 @@ Before cloning, make sure you have the required tools. **[Read the Prerequisites
 ```bash
 # Clone the project
 git clone https://github.com/pingwu/solo-unicorn.git
-cd solo-unicorn
 ```
 
-Then customize with natural language:
-```
-"Update the hero section with my name 'Your Name' and title 'Your Title'"
-```
+### 3. Start Your AI Coding Agent
 
-**CLI Reference:**
-```bash
-git clone https://github.com/pingwu/landing-page.git
-cd landing-page
-npm run docker:dev
-# Open http://localhost:3000
-```
+Start your [CLI coding agent](docs/coding-agents.md) from the parent workspace that now contains `solo-unicorn/`, then tell it:
+**"Run the init unicorn setup"** — it will create your personal knowledge vault and connect the skills.
 
-## Tech Stack
+**Your first three moves:**
+1. **"Build me a personal landing page"** → ship your first project using AI-paired development
+2. **"Help me validate this idea"** → the AI uses `idea-validation` and `product` to pressure-test before you build
+3. **Contribute back** → participate in the Solo Unicorn Builder project itself. Contributing to an open-source AI-native platform proves you can ship across multiple roles.
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| Next.js | 16 | React framework with App Router |
-| React | 19 | Component-based UI |
-| TypeScript | 5.9 | Type safety (strict mode) |
-| Tailwind CSS | 4 | Utility-first styling |
-| Vitest | 4 | Unit and component testing |
-| Docker | — | Containerized development |
-| AWS App Runner | — | Cloud deployment |
+Or follow the manual setup in [INIT_UNICORN.md](INIT_UNICORN.md).
 
-## Use Cases
+## Grow With Your Ambition
 
-The default template works for consulting services, professional portfolios, digital resumes, and enterprise initiative sites. Alternative templates are in `templates/`.
+Solo Unicorn Builder meets you where you are — and scales with you.
 
-## Container Commands
+| Stage | You're saying... | How it helps... |
+|-------|-----------------|---------------------|
+| **Learning the gaps** | "I've never done deployment / product / marketing" | AI walks you through each discipline with structured skills |
+| **Building end-to-end** | "I want to ship something from scratch to production" | Architecture, testing, debugging, CI/CD, deployment |
+| **Launching** | "I have something — now I need users" | Validate ideas, define your product, go to market |
+| **Growing** | "I need to understand the business side" | Revenue models, partnerships, legal, finance, operations |
+| **Getting hired** | "I want to prove I can build end-to-end with AI" | Portfolio projects, resume tailoring, GitHub presence |
 
-**Important for AI agents:** `npm run docker:dev` already runs the container in detached mode with hot-reload enabled. The dev server starts automatically - do NOT run additional `npm run dev` commands inside the container.
+## From Context Engineering to Agent Harness
 
-| Natural Language | CLI Command | Purpose |
-|-----------------|-------------|---------|
-| "Start the dev server" | `npm run docker:dev` | Dev server with hot-reload (port 3000) - runs in background |
-| "Start a production preview" | `npm run docker:prod` | Production preview (port 3001) |
-| "Stop the containers" | `npm run docker:down` | Stop containers |
-| "Open a shell in the container" | `npm run docker:shell` | Shell into container |
-| "Show the container logs" | `docker compose logs dev -f` | View logs (follow mode) |
-| "Run the tests" | `docker compose exec dev npm run test:run` | Run tests |
-| "Type-check the project" | `docker compose exec dev npm run typecheck` | TypeScript check |
-| "Lint the code" | `docker compose exec dev npm run lint` | ESLint |
+The industry calls it **context engineering** — structuring information so AI produces better outputs. We've been doing it since before the term existed. But context engineering is only half the picture. Knowing what to feed the AI doesn't help if you don't have a system to make it *act*.
 
-### Correct Workflow
-```bash
-npm run docker:dev          # Start (runs in background automatically)
-# Server is now running at http://localhost:3000
-docker compose logs dev -f  # View logs if needed (optional)
-npm run docker:down         # Stop when done
-```
+Solo Unicorn Builder is an **agent harness** — the evolution from context engineering. It doesn't just structure your knowledge; it gives AI agents the skills, instructions, and domain expertise to operate as your team across every function you've never done before.
 
-### What NOT to do
-❌ `docker compose run --rm dev npm run dev` - This is redundant and blocks the terminal
+Three layers make this work:
 
-## Documentation
+- **Skills** (`skills/`) — structured prompting patterns that give the AI domain expertise across engineering, product, marketing, sales, finance, legal, and operations
+- **Instructions** (`CLAUDE.md` → `UNICORN_CONSTITUTION.md`) — cascading rules that shape agent behavior, from mission down to individual skill
+- **Knowledge** (`my_knowledge/`) — your daily writing, research, ideas, and goals — the layer only you can build
 
-| Document | Purpose |
-|----------|---------|
-| [Prompt Library](docs/prompts/PROMPT-LIBRARY.md) | Copy-paste prompts for customizing every section |
-| [Content Templates](docs/prompts/CONTENT-TEMPLATES.md) | Ready-to-use content examples by use case |
-| [PRD Templates](docs/product/PRD-TEMPLATES.md) | Product requirements by use case |
-| [Tech Stack](docs/reference/TECH-STACK.md) | Detailed technology and agent documentation |
-| [Deployment Roadmap](docs/guides/DEPLOYMENT-ROADMAP.md) | Phase-by-phase deployment guide |
-| [AWS Deployment Guide](docs/guides/AWS-DEPLOYMENT-GUIDE.md) | Complete AWS setup from scratch |
-| [AWS Glossary](docs/reference/AWS-GLOSSARY.md) | AWS services explained |
-| [AWS Pricing Guide](docs/reference/AWS-PRICING-GUIDE.md) | Cost estimates and free tier |
-| [GCP Deployment Guide](docs/guides/GCP-DEPLOYMENT-GUIDE.md) | Complete GCP Cloud Run setup from scratch |
-| [GCP Deployment Roadmap](docs/guides/GCP-DEPLOYMENT-ROADMAP.md) | Phase-by-phase GCP deployment guide |
-| [GCP Glossary](docs/reference/GCP-GLOSSARY.md) | GCP services explained |
-| [GCP Pricing Guide](docs/reference/GCP-PRICING-GUIDE.md) | GCP cost estimates and free tier |
-| [Success Stories](docs/SUCCESS-STORIES.md) | What learners have built |
-| [Full Learning Journey](../../curriculum/) | Course curriculum and build guides |
+The knowledge layer is the foundation. A daily practice of collecting thoughts, capturing external knowledge, and organizing it into folders that form a personal knowledge graph. Over time, the AI doesn't just answer questions — it reasons about *your* specific situation, because your accumulated context is always available.
 
-## Agent Instructions
+Because your context is plain files — not locked inside any vendor — you can run the same knowledge, the same skills, and the same instructions through different models. Ask Claude Code to architect a feature, then ask Gemini CLI to review it, then ask Kiro CLI to deploy it. Same context, multiple perspectives. That's something you can't do when your history is trapped in a single provider's chat threads.
 
-AI coding agents read these files automatically:
-- `AGENTS.md` — Project goals, conventions, constraints
-- `../../UNICORN_CONSTITUTION.md` — Master constitution (Solo Unicorn Builder)
+### Proof It Works
 
-## Contributing
+This isn't theory. The agent harness approach has shipped real outcomes:
 
-Found an issue? [Open an issue](https://github.com/pingwu/landing-page/issues) or submit a PR.
+- **[Just Ask](https://www.ping-ai.com)** — A business novel produced entirely through the daily writing and knowledge collection practice that became `my_knowledge/`. Years of daily reflections, research notes, and accumulated context gave the AI something real to work with. The protagonist discovers the core insight: **the technology is never the variable; the context is.**
+- **[AI Launchpad Cohort](https://cohort.solo-unicorn.app/)** — A production landing page for a paid 3-week intensive, built and shipped using the same skills and workflows this project teaches. From copy to deployment, every piece was created through the agent harness — proving the framework works for real business outcomes, not just side projects.
+- **WRITITATION™ — before the Karpathy Wiki Pattern** — In April 2026, Karpathy's [LLM Wiki Pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) went viral: structured markdown + Obsidian + LLM agents. Solo Unicorn Builder has been doing this since 2025 — with a trademarked methodology (WRITITATION™) and the `obsidian-knowledge` skill — over a year before the pattern had a name.
 
-## Production Graduation Checklist
+[Read the full story →](docs/context-engineering.md)
 
-Before exposing this app to real users or real traffic, confirm **every item below**.
+## The Things AI Can't Do for You
 
-### Runtime Safety
+1. **Ask your Why** — What is your core value? What are your ultimate goals?
+2. **Listen to your audience, build trust** — Whether 1:1 or 1:many.
+3. **Do and implement with meaningful impact** — Without 1 and 2, building is just busyness.
 
-- Global error boundary is implemented (`app/error.tsx`)
-- 404 handling is explicit (`app/not-found.tsx`)
-- App does not crash on unexpected runtime errors
-- Users never see raw stack traces
+AI handles the heavy lifting. You handle the asking, listening, and trust-building. [Read more →](docs/philosophy.md)
 
-### Configuration Safety
+## Contribute Your Skills
 
-- All required environment variables are validated at startup
-- Missing or invalid config causes a clear, immediate failure
-- No secrets are referenced in client components
+This is a community project. If you've solved a real problem for real people, package it as a skill and share it. [How to contribute →](docs/contributing.md)
 
-### Deployment Signals
+## Learn More
 
-- `/health` endpoint returns `200 OK`
-- Cloud platform health checks are configured
-- Failed deploys are detectable without inspecting logs
+- [Prerequisites](PREREQUISITES.md) — Tools you need (or just use Docker)
+- [Skills Reference](docs/skills-reference.md) — All 36 skills, organized by stage and category
+- [Coding Agents](docs/coding-agents.md) — Compare Claude Code, Gemini CLI, Kiro CLI, OpenCode, and more
+- [Context Engineering](docs/context-engineering.md) — Why your context shouldn't live in a vendor's data center
+- [Philosophy](docs/philosophy.md) — The Ask, Listen, Do framework
+- [Contributing](docs/contributing.md) — How to add your own skills
 
-### Security Baseline
+## Attribution
 
-- Security headers are explicitly set (CSP, frame, content-type, referrer)
-- Dependencies are locked (`npm ci`)
-- No credentials are committed or logged
-
-### UX & Accessibility
-
-- Keyboard navigation works end-to-end
-- Mobile navigation opens and closes reliably
-- No major layout shift on page load
-- At least one accessibility test runs in CI
-
-### Build & Release Confidence
-
-- Production build runs successfully (`npm run docker:prod`)
-- Tests pass in the same container used for production
-- Target platform is explicit (`linux/amd64`)
-- Rollback strategy is understood (even if manual)
-
-### Documentation Honesty
-
-- README clearly states what the app does **not** include
-- Deployment steps exist for at least one platform
-- Ownership is clear if the site breaks
+- Framework based on practical context engineering and AI-augmented knowledge work patterns.
+- Skills architecture inspired by Anthropic's [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins/) — an open-source framework for AI-augmented knowledge work.
 
 ## License
 
-MIT — use freely for personal or commercial projects.
-
----
-
-**Course**: CSE 651 — Software Development with Agentic AI ([CSTU.edu](https://cstu.edu))
-**Instructor**: Ping Wu
-**Evolved from**: [MACA (Multi-AI-Coding-Agent)](https://github.com/pingwu/maca)
+[MIT](LICENSE)

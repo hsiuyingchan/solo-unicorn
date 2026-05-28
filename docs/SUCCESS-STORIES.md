@@ -15,7 +15,7 @@ This page showcases what learners have built after completing the Agentic Landin
 
 ### Mark — Stock Trading Signal Application
 
-**Background**: Student in CSE651, new to cloud deployment
+**Background**: Student in an agentic software development course, new to cloud deployment
 
 **Started With**: This landing page template
 
@@ -182,5 +182,5 @@ As you complete your journey, consider:
 ---
 
 *Last updated: January 2026*
-*Course: CSE651 - Software Development with Agentic AI*
-*Institution: CSTU.edu*
+*Course: Software Development with Agentic AI*
+*Institution: Example learning program*
