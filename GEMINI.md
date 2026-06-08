@@ -1,11 +1,11 @@
 ---
-name: agent-reference
-description: Generic agent entry point for Solo Unicorn Builder. Points to the operating rules, strategic anchor, and coding principles.
+name: gemini-system-prompt
+description: Gemini CLI entry point for Solo Unicorn Builder. Points to the operating rules, strategic anchor, and coding principles.
 ---
 
-# AGENTS.md — Agent Entry Point
+# GEMINI.md — Gemini CLI Entry Point
 
-For any AI coding agent. Read these three, in order:
+Read these three, in order:
 
 - [UNICORN_CONSTITUTION.md](UNICORN_CONSTITUTION.md) — hard operating rules (container-first, workspace boundaries, security). Overrides default behavior.
 - [ANCHOR.md](ANCHOR.md) — mission, who we serve, and architectural commitments.
